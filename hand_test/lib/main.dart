@@ -22,8 +22,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(title: '손바닥으로 하는 심리 테스트'),
-        '/home': (context) => MyHomePage(title: '손바닥으로 하는 심리 테스트'),
-        '/main': (context) => MyHomePage(title: '손바닥으로 하는 심리 테스트'),
         '/result/a': (context) => ResultA(),
         '/result/b': (context) => ResultB(),
         '/result/c': (context) => ResultC(),
