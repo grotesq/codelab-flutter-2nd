@@ -47,16 +47,44 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Link( '선택지 A', '/result/a' ),
-            Link( '선택지 B', '/result/b' ),
-            Link( '선택지 C', '/result/c' ),
-            Link( '선택지 D', '/result/d' ),
-          ],
-        ),
+      body: Column(
+        children: [
+          Text(
+            '"손 이리 줘봐" 했을 때 당신은 어떻게 손을 내밀건가요?',
+            style: TextStyle( fontSize: 24 ),
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/result/a');
+                  },
+                  child: Image.asset('lib/assets/hand-type-a.png'),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/result/b');
+                  },
+                  child: Image.asset('lib/assets/hand-type-b.png'),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/result/c');
+                  },
+                  child: Image.asset('lib/assets/hand-type-c.png'),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/result/d');
+                  },
+                  child: Image.asset('lib/assets/hand-type-d.png'),
+                ),
+              ],
+            )
+          )
+        ],
       ),
     );
   }
