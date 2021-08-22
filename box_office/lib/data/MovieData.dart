@@ -7,6 +7,7 @@ class MovieData {
   late String prdtYear;
   late String openDt;
   late List<PeopleData> directors;
+  late List<PeopleData> actors;
 
   MovieData(dynamic raw) {
     this.movieCd = raw['movieCd'] ?? '';
@@ -18,6 +19,10 @@ class MovieData {
     this.directors = [];
     (raw['directors'] as List<dynamic>).forEach((element) {
       directors.add(PeopleData(element));
+    });
+    this.actors = [];
+    (raw['actors'] as List<dynamic>).forEach((element) {
+      actors.add(PeopleData(element));
     });
   }
 }
