@@ -4,6 +4,7 @@ class RankData {
   late String rankOldAndNew;
   late bool isNew;
   late String movieNm;
+  late String movieCd;
 
   RankData(dynamic raw) {
     this.rank = int.parse(raw['rank']);
@@ -14,5 +15,6 @@ class RankData {
     if( this.movieNm.length > 12 ) {
       this.movieNm = this.movieNm.substring( 0, 12 ) + '..';
     }
+    this.movieCd = raw[ 'movieCd' ];
   }
 }

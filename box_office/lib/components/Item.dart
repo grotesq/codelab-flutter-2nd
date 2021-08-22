@@ -1,4 +1,5 @@
 import 'package:box_office/data/RankData.dart';
+import 'package:box_office/screens/MovieDetail.dart';
 import 'package:flutter/material.dart';
 
 class Item extends StatelessWidget {
@@ -18,22 +19,32 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (
-      Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Text( data.rank.toString(), style: rankStyle, ),
-          ),
-          Text(
-            '${( data.rankInten < 0 ? '🔽' : '🔼' )}${data.rankInten}',
-            style: subInfo,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(16, 16, 4, 16),
-            child: Text( data.movieNm, style: style, ),
-          ),
-          Text( data.isNew ? '🆕' : '', style: subInfo, ),
-        ],
+      InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ( context ) => MovieDetail( data.movieCd )
+            )
+          );
+        },
+        child: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Text( data.rank.toString(), style: rankStyle, ),
+            ),
+            Text(
+              '${( data.rankInten < 0 ? '🔽' : '🔼' )}${data.rankInten}',
+              style: subInfo,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(16, 16, 4, 16),
+              child: Text( data.movieNm, style: style, ),
+            ),
+            Text( data.isNew ? '🆕' : '', style: subInfo, ),
+          ],
+        ),
       )
     );
   }

@@ -26,7 +26,7 @@ class RankState extends State<Rank> {
     String host = 'www.kobis.or.kr';
     String pathname = '/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
     Map<String, String> qs = {
-      'key': 'f98e786e28f0594854cf4197e51f6907',
+      'key': '12869c6852f1a0d532c41a3cd540e2ef',
       'targetDt': '20210814',
     };
     http.get( Uri.https( host, pathname, qs ) )
