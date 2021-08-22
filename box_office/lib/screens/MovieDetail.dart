@@ -10,6 +10,19 @@ import 'package:box_office/screens/PeopleList.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+class MovieDetailPageArguments {
+  String movieCd;
+  MovieDetailPageArguments( this.movieCd );
+}
+
+class MovieDetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    MovieDetailPageArguments args = ModalRoute.of(context)!.settings.arguments as MovieDetailPageArguments;
+    return MovieDetail( args.movieCd );
+  }
+}
+
 class MovieDetail extends StatefulWidget {
   String movieCd;
   MovieDetail(this.movieCd);

@@ -21,11 +21,16 @@ class Item extends StatelessWidget {
     return (
       InkWell(
         onTap: () {
-          Navigator.push(
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: ( context ) => MovieDetail( data.movieCd )
+          //   )
+          // );
+          Navigator.pushNamed(
             context,
-            MaterialPageRoute(
-              builder: ( context ) => MovieDetail( data.movieCd )
-            )
+            '/movie-detail',
+            arguments: MovieDetailPageArguments(data.movieCd)
           );
         },
         child: Row(

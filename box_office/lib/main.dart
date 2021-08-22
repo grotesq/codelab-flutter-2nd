@@ -1,4 +1,7 @@
 import 'package:box_office/screens/BoxOffice.dart';
+import 'package:box_office/screens/More.dart';
+import 'package:box_office/screens/MovieDetail.dart';
+import 'package:box_office/screens/PeopleList.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +17,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BoxOffice(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => BoxOffice(),
+        '/movie-detail': (context) => MovieDetailPage(),
+      },
+      onGenerateRoute: (settings) {
+
+      },
     );
   }
 }
