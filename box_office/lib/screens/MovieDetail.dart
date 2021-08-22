@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:box_office/data/MovieData.dart';
+import 'package:box_office/screens/PeopleList.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,6 +17,7 @@ class MovieDetail extends StatefulWidget {
 
 class MovieDetailState extends State<MovieDetail> {
   late MovieData movieData;
+  String status = 'pending';
 
   @override
   void initState() {
@@ -33,11 +35,15 @@ class MovieDetailState extends State<MovieDetail> {
       var json = jsonDecode( response.body );
       setState(() {
         movieData = MovieData( json['movieInfoResult']['movieInfo'] );
+        status = 'loaded';
       });
     } );
   }
   @override
   Widget build(BuildContext context) {
+    if( status != 'loaded' ) {
+      return Container();
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(movieData.movieNm),
@@ -59,6 +65,29 @@ class MovieDetailState extends State<MovieDetail> {
           Padding(
             padding: EdgeInsets.all(12),
             child: Text( '개봉일 : ${movieData.openDt}'),
+          ),
+          Padding(
+            padding: EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Text('감독 : '),
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ( context ) => PeopleList( movieData.directors[0].peopleNm )
+                          )
+                        );
+                      },
+                      child: Text(movieData.directors[0].peopleNm),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
