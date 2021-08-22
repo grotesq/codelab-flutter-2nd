@@ -59,20 +59,10 @@ class MovieDetailState extends State<MovieDetail> {
           TextItem('제작년도 : ${movieData.prdtYear}년'),
           TextItem('개봉일 : ${movieData.openDt}'),
           SimpleItem(
-            Row(
-              children: [
-                Text('감독 : '),
-                People(movieData.directors),
-              ],
-            )
+            People('감독', movieData.directors),
           ),
           SimpleItem(
-            Row(
-              children: [
-                Text('출연 : '),
-                People(movieData.actors),
-              ],
-            )
+            People('출연', movieData.actors),
           ),
         ],
       ),

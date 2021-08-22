@@ -4,6 +4,7 @@ class PeopleData {
   late String repRoleNm;
   late String filmoNames;
   late String cast;
+  late List<dynamic> filmos;
 
   PeopleData( dynamic raw ) {
     this.peopleNm = raw[ 'peopleNm' ];
@@ -11,5 +12,6 @@ class PeopleData {
     this.repRoleNm = raw[ 'repRoleNm' ] ?? '';
     this.filmoNames = raw[ 'filmoNames' ] ?? '';
     this.cast = raw[ 'cast' ] ?? '';
+    this.filmos = raw[ 'filmos' ] ?? [];
   }
 }
